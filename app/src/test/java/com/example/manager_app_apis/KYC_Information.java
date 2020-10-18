@@ -1,6 +1,24 @@
 package com.example.manager_app_apis;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import io.restassured.RestAssured;
+
+import static io.restassured.RestAssured.when;
+
 public class KYC_Information {
+
+    @Before
+    public void baseURl(){
+        RestAssured.baseURI="https://api.dev-sheba.xyz";
+
+    }
+    @Test
+    public void kyc_verification_statuscode_200(){
+        when().get("v2/partners/37732/kyc/check-verification?remember_token=naQWZPwPCMQ7iuKL1pMQ7tsKlLMmF39f4XEiBwyF4AShSgvwejSjI0Wdo8ep").
+                then().statusCode(200).log().all();
+    }
 
 
    // https://api.dev-sheba.xyz/v2/partners/37732/kyc/check-verification?remember_token=naQWZPwPCMQ7iuKL1pMQ7tsKlLMmF39f4XEiBwyF4AShSgvwejSjI0Wdo8ep
