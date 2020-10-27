@@ -7,6 +7,7 @@ import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static org.hamcrest.core.IsEqual.equalTo;
 
 public class App_version {
 
@@ -21,6 +22,14 @@ public class App_version {
 
                 get("v1/versions?app=manager_app_android&version=212009")
                 .then().statusCode(200).log().all();
+    }
+    @Test
+    public void response_200(){
+
+
+        when().get("v1/versions?app=manager_app_android&version=212009").then().
+                body("code",equalTo(200)).
+                body("message", equalTo("Successful"));
     }
 
    /* https://api.dev-sheba.xyz/v1/versions?app=manager_app_android&version=212009
