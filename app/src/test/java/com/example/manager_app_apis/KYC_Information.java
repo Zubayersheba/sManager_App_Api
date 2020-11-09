@@ -6,6 +6,7 @@ import org.junit.Test;
 import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.when;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class KYC_Information {
 
@@ -17,7 +18,7 @@ public class KYC_Information {
     @Test
     public void kyc_verification_statuscode_200(){
         when().get("v2/partners/37732/kyc/check-verification?remember_token=naQWZPwPCMQ7iuKL1pMQ7tsKlLMmF39f4XEiBwyF4AShSgvwejSjI0Wdo8ep").
-                then().statusCode(200).log().all();
+                then().statusCode(200).body("code",equalTo(200)).log().all();
     }
 
 

@@ -8,7 +8,7 @@ import io.restassured.RestAssured;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class customer_list {
+public class customer_list extends BaseUrl{
     @Before
     public void baseURL(){
         RestAssured.baseURI="https://api.dev-sheba.xyz";
