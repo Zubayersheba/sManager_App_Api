@@ -67,7 +67,7 @@ public class Topup {
     @Test
     public void top_up_success_with_password_v3(){
         RequestSpecification request = RestAssured.given();
-        String body= "{\"mobile\": \"01678242967\",   \"vendor_id\": \"2\", \"connection_type\": \"postpaid\", \"remember_token\": \"naQWZPwPCMQ7iuKL1pMQ7tsKlLMmF39f4XEiBwyF4AShSgvwejSjI0Wdo8ep\",  \"amount\": \"10\",\"password\":\"12345\" }";
+        String body= "{\"mobile\": \"01678242967\",   \"vendor_id\": \"2\", \"connection_type\": \"postpaid\", \"remember_token\": \"1r7umYm9hGd9gp0MO8A6Htp4rQTukilYgDhpmvSYUQHP2P4KKarUzkmKt9H3xs11gMSEOiHWJZmJvVBI8EJDJlwjnIrZBYsXHwqV79xkZADEK8DSU3U6J4mTqBFQYlbWt0ojXujK2gBc3ldHHHf5vENyG1xVA2W9FeRtOi3RrIdoSTLaXwfkgSXJqwumqp17EaTDr0G5RNqNDCyh4ImuUWDANuFpZJLEq4BHv2k3crNcpaBWKal2Layb9fLTcIW\",  \"amount\": \"10\",\"password\":\"12345\" }";
         request.header("Content-Type", "application/json");
         request.body(body);
         request.post("/v3/partners/37732/top-up").
